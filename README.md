@@ -1,4 +1,4 @@
-# Run and deploy Banking Transaction Analyzer
+# Banking Transaction Analyzer
 
 Banking Transaction Analyzer is an Angular application to upload, analyze, and manage banking transactions from a CSV file, featuring an interactive dashboard powered by ag-Grid.
 
