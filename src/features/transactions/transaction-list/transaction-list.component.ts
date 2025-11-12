@@ -137,6 +137,7 @@ export class TransactionListComponent implements OnInit {
   }
 
   onCellClicked(event: CellClickedEvent): void {
+    // Ignore clicks on editable cells
     if (event.colDef.editable) {
       return;
     }

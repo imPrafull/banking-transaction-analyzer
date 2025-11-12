@@ -131,10 +131,6 @@ export class TransactionService {
               type: normalizedType as 'Credit' | 'Debit',
               accountNumber: values[headerMap.indexOf('account number')]?.trim(),
             });
-// ...existing code...
-  
-            // optional tiny delay for simulating parsing time
-            // if (i % 100 === 0) await delay(50);
           }
   
   
