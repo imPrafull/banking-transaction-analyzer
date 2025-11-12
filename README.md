@@ -12,6 +12,8 @@ This contains everything you need to run your app locally.
 2. Run the app:
    `npm run dev`
 
+Some test CSV files are included in the `test-data/` folder for development and testing purposes.
+
 ## Future Improvements
 
 1. Better analytics on dashboard
