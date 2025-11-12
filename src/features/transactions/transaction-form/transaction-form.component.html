@@ -1,0 +1,75 @@
+
+<div class="max-w-2xl mx-auto">
+  <form [formGroup]="transactionForm" (ngSubmit)="onSubmit()" class="bg-white dark:bg-gray-800 shadow-xl rounded-lg">
+    <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Edit Transaction</h2>
+      <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">ID: {{ transactionId }}</p>
+    </div>
+    
+    <div class="p-6 space-y-6">
+      <div>
+        <label for="description" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Description</label>
+        <div class="mt-1">
+          <input type="text" id="description" formControlName="description" class="block w-full shadow-sm sm:text-sm rounded-md bg-gray-50 dark:bg-gray-700 border-gray-300 dark:border-gray-600 focus:ring-indigo-500 focus:border-indigo-500 p-3 p-4">
+          <div *ngIf="transactionForm.get('description')?.invalid && transactionForm.get('description')?.touched" class="text-red-500 text-xs mt-1">
+            Description is required.
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div>
+          <label for="amount" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Amount</label>
+          <div class="mt-1">
+            <input type="number" id="amount" formControlName="amount" class="block w-full shadow-sm sm:text-sm rounded-md bg-gray-50 dark:bg-gray-700 border-gray-300 dark:border-gray-600 focus:ring-indigo-500 focus:border-indigo-500 p-3 p-4">
+            <div *ngIf="transactionForm.get('amount')?.invalid && transactionForm.get('amount')?.touched" class="text-red-500 text-xs mt-1">
+              Must be a valid number.
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <label for="date" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Date</label>
+          <div class="mt-1">
+            <input type="date" id="date" formControlName="date" class="block w-full shadow-sm sm:text-sm rounded-md bg-gray-50 dark:bg-gray-700 border-gray-300 dark:border-gray-600 focus:ring-indigo-500 focus:border-indigo-500 p-3 p-4">
+            <div *ngIf="transactionForm.get('date')?.invalid && transactionForm.get('date')?.touched" class="text-red-500 text-xs mt-1">
+              A valid date is required.
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div>
+          <label for="type" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Transaction Type</label>
+          <select id="type" formControlName="type" class="mt-1 block w-full p-3 p-4 text-base rounded-md bg-gray-50 dark:bg-gray-700 border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+            <option>Credit</option>
+            <option>Debit</option>
+          </select>
+          <div *ngIf="transactionForm.get('type')?.invalid && transactionForm.get('type')?.touched" class="text-red-500 text-xs mt-1">
+            Type must be 'Credit' or 'Debit'.
+          </div>
+        </div>
+
+        <div>
+          <label for="accountNumber" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Account Number</label>
+          <div class="mt-1">
+            <input type="text" id="accountNumber" formControlName="accountNumber" class="block w-full shadow-sm sm:text-sm rounded-md bg-gray-50 dark:bg-gray-700 border-gray-300 dark:border-gray-600 focus:ring-indigo-500 focus:border-indigo-500 p-3 p-4">
+             <div *ngIf="transactionForm.get('accountNumber')?.invalid && transactionForm.get('accountNumber')?.touched" class="text-red-500 text-xs mt-1">
+              A valid account number is required.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="p-6 bg-gray-50 dark:bg-gray-800/50 flex justify-end items-center space-x-4">
+      <button type="button" (click)="onCancel()" class="px-4 py-2 border border-gray-300 dark:border-gray-600 text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+        Cancel
+      </button>
+      <button type="submit" [disabled]="transactionForm.invalid" class="px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-400 dark:disabled:bg-gray-600 disabled:cursor-not-allowed">
+        Save Changes
+      </button>
+    </div>
+  </form>
+</div>
