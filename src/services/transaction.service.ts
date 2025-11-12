@@ -55,7 +55,7 @@ export class TransactionService {
   }
   
   parseCsv(file: File): Observable<{ progress: number; data?: Transaction[]; error?: string }> {
-    const SIMULATE_LARGE_FILE = true; // set to true to simulate large file parsing
+    const SIMULATE_LARGE_FILE = false; // set to true to simulate large file parsing
     const DELAY_MS = SIMULATE_LARGE_FILE ? 300 : 0;
     const CHUNK_SIZE = SIMULATE_LARGE_FILE ? 1024 * 50 : 1024 * 1024 * 2; // 50 KB or 2 MB per chunk
 
